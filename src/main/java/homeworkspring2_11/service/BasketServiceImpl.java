@@ -1,21 +1,22 @@
 package homeworkspring2_11.service;
-
-import homeworkspring2_11.Basket;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.ArrayList;
+import java.util.Collections;
+
 @Service
+@SessionScope
 public class BasketServiceImpl implements BasketService{
 
-    ArrayList<Basket> data = new ArrayList<>();
+    ArrayList<Integer> data = new ArrayList<>();
     @Override
-    public void addId(Integer id) {
-        Basket newItem = new Basket(id);
-        data.add(newItem);
+    public void addId(Integer[] id) {
+        Collections.addAll(data,id);
     }
 
     @Override
-    public ArrayList<Basket> getId() {
+    public ArrayList<Integer> getId() {
         return data;
     }
 }
